@@ -19,6 +19,9 @@ import javax.lang.model.element.Element;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.util.Elements;
 import javax.lang.model.util.Types;
+import javax.tools.Diagnostic;
+
+import static javax.tools.Diagnostic.Kind.*;
 
 @AutoService(javax.annotation.processing.Processor.class)
 public class Processor extends AbstractProcessor {
@@ -53,6 +56,7 @@ public class Processor extends AbstractProcessor {
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         // Iterate over all @Factory annotated elements
         for (Element annotatedElement : roundEnv.getElementsAnnotatedWith(Factory.class)) {
+            messager.printMessage(NOTE, "round");
         }
         // TODO:
 
