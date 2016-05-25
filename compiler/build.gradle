@@ -1,0 +1,13 @@
+apply plugin: 'java'
+
+// This is important even if Android Studio claims it isn't
+// used. Android can't interpret Java 8 byte code.
+sourceCompatibility = rootProject.ext.sourceCompatibilityVersion
+targetCompatibility = rootProject.ext.targetCompatibilityVersion
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project (':annotations')
+    compile 'com.google.auto.service:auto-service:1.0-rc2'
+    compile 'com.squareup:javapoet:1.0.0'
+}
